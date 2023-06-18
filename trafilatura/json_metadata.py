@@ -143,15 +143,15 @@ def extract_json_parse_error(elem, metadata):
         if mymatch and candidate in JSON_OGTYPE_SCHEMA:
             metadata.pagetype = candidate
 
-    # try to extract publisher
-    if '"publisher"' in elem:
-        mymatch = JSON_PUBLISHER.search(elem)
-        if mymatch and ',' not in mymatch[1]:
-            candidate = normalize_json(mymatch[1])
-            if metadata.sitename is None or len(metadata.sitename) < len(candidate):
-                metadata.sitename = candidate
-            if metadata.sitename.startswith('http') and not candidate.startswith('http'):
-                metadata.sitename = candidate
+    # # try to extract publisher
+    # if '"publisher"' in elem:
+    #     mymatch = JSON_PUBLISHER.search(elem)
+    #     if mymatch and ',' not in mymatch[1]:
+    #         candidate = normalize_json(mymatch[1])
+    #         if metadata.sitename is None or len(metadata.sitename) < len(candidate):
+    #             metadata.sitename = candidate
+    #         if metadata.sitename.startswith('http') and not candidate.startswith('http'):
+    #             metadata.sitename = candidate
 
     # category
     if '"articleSection"' in elem:
