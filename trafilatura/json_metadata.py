@@ -62,8 +62,8 @@ def extract_json(schema, metadata):
                 if candidate:
                     if metadata.sitename is None or (len(metadata.sitename) < len(candidate) and content_type != "webpage"):
                         metadata.sitename = candidate
-                    if metadata.sitename is not None and metadata.sitename.startswith('http') and not candidate.startswith('http'):
-                        metadata.sitename = candidate
+                    # if metadata.sitename is not None and metadata.sitename.startswith('http') and not candidate.startswith('http'):
+                    #     metadata.sitename = candidate
 
             elif content_type == "person":
                 if content.get('name') and not content['name'].startswith('http'):
